@@ -1,0 +1,11 @@
+<label for="id_email" class="label-wrapper">
+  <span class="label-text">Email address</span>
+  {{input type="email" name="email" autocomplete="username" id="id_email" required="required" value=email class="input-value" placeholder="Email address"}}
+</label>
+{{validation-error error=errors.email}}
+
+<label for="id_confirm_email" class="label-wrapper">
+  <span class="label-text">Confirm email address</span>
+  {{input type="email" name="confirm_email" id="id_confirm_email" value=emailConfirm class="input-value" placeholder="Confirm email address" data-equalto="id_email" required="required"}}
+</label>
+{{validation-error error=errors.emailConfirm}}

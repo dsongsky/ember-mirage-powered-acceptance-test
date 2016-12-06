@@ -1,0 +1,29 @@
+<select title="Day" name="day" id="day" onchange={{action "selectDay" value="target.value"}}>
+  {{#each dayRange as |d|}}
+    {{#if (eq d day)}}
+      <option value={{d}} selected>{{d}}</option>
+    {{else}}
+      <option value={{d}}>{{d}}</option>
+    {{/if}}
+  {{/each}}
+</select>
+
+<select title="Month" name="month" id="month" onchange={{action "selectMonth" value="target.value"}}>
+  {{#each monthRange as |m|}}
+    {{#if (eq m month)}}
+      <option value={{m}} selected>{{m}}</option>
+    {{else}}
+      <option value={{m}}>{{m}}</option>
+    {{/if}}
+  {{/each}}
+</select>
+
+<select title="Year" name="year" id="year" onchange={{action "selectYear" value="target.value"}}>
+  {{#each yearRange as |y|}}
+    {{#if (eq y year)}}
+      <option value={{y}} selected>{{y}}</option>
+    {{else}}
+      <option value={{y}}>{{y}}</option>
+    {{/if}}
+  {{/each}}
+</select>

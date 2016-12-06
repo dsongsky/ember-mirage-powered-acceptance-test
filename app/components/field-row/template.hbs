@@ -1,0 +1,11 @@
+<div class="field-row">
+  <label for={{id}} class={{labelClass}}>
+    {{#if label.length}}<span class={{labelTextClass}}>{{label}}</span>{{/if}}
+    {{#if wrapControl}}
+      {{yield id}}
+    {{/if}}
+  </label>
+  {{#unless wrapControl}}
+    {{yield}}
+  {{/unless}}
+</div>

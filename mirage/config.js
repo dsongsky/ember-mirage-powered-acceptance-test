@@ -53,6 +53,16 @@ export default function () {
   });
 
   this.get('/rentals', (schema) => {
-    return schema.rentals.all();
+    let results = schema.rentals.all();
+    console.log('/rentals', results, schema.rentals);
+    window.rentals = results;
+    return results;
+  });
+
+  this.get('/reg-form', (schema) => {
+    let results = schema.rentals.all();
+    console.log('/reg-form', results, schema.rentals);
+    window.reg = results;
+    return results;
   });
 }

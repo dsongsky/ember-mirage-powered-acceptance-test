@@ -1,8 +1,20 @@
-<h1>test page</h1>
+{{registration-form
+  form=model.regForm
+  setField=(route-action 'setField')
+  onSubmit=(route-action 'submit')
+}}
+<h1>how</h1>
 
-{{#each model as |rental|}}
+there is {{model.regForm.firstName}}
+
+<h1>Rentals</h1>
+
+{{#each model.rental as |rental|}}
   <article class="listing">
-    <h3>{{book.title}}</h3>
+    <h3>{{rental.title}}</h3>
+    <div class="detail image">
+      <img src={{rental.image}}>
+    </div>
     <div class="detail owner">
       <span>Owner:</span> {{rental.owner}}
     </div>

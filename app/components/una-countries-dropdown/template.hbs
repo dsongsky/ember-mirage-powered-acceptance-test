@@ -1,0 +1,5 @@
+  <select title="Country" name="title" id={{ddID}} onchange={{action countrySelectChange value="target.value"}}>
+  {{#each countries as |c|}}
+      <option value="{{c.id}}">{{c.name}}</option>
+  {{/each}}
+  </select>

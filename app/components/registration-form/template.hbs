@@ -1,0 +1,115 @@
+
+
+{{registration-form/basic-details
+titles=form.titles
+firstName=form.firstName
+lastName=form.lastName
+telNumber=form.telNumber
+selectTitle=(action setField "title")
+}}
+
+{{registration-form/email
+email=form.email
+emailConfirm=form.emailConfirm
+}}
+
+{{registration-form/address
+idPrefix="address_"
+country=form.country
+address1=form.address1
+address2=form.address2
+townCity=form.townCity
+county=form.county
+postcode=form.postcode
+}}
+
+{{registration-form/address-billing
+idPrefix="billing-address_"
+country=form.billingCountry
+address1=form.billingAddress1
+address2=form.billingAddress2
+townCity=form.billingTownCity
+county=form.billingCounty
+postcode=form.billingPostcode
+sameBillingAddress=form.sameBillingAddress
+selectSameBillingAddress=(action setField "sameBillingAddress")
+}}
+
+{{registration-form/date-of-birth
+day=form.dobDay
+month=form.dobMonth
+year=form.dobYear
+selectDay=(action setField "dobDay")
+selectMonth=(action setField "dobMonth")
+selectYear=(action setField "dobYear")
+}}
+
+<div class="single-checkbox">
+  <label for="id_declaration" class="declaration">
+    {{ input type="checkbox" name="declaration" id="id_declaration" required="required" }}
+    <span>I have read and agree to the {{#link-to 'reg-form'}}terms and conditions{{/link-to}}
+      and {{#link-to 'reg-form'}}privacy &amp; cookies notice{{/link-to}}</span>
+  </label>
+</div>
+<div class="single-checkbox">
+  <label for="id_marketing_opt_in" class="declaration">
+    {{ input type="checkbox" id="id_marketing_opt_in" }}
+    <span>Sky Tickets may contact you about products and services you may like unless you click to opt out. You can change your marketing preferences in the My Account section.</span>
+  </label>
+</div>
+<div class="single-checkbox">
+  <label for="id_partners_opt_in" class="declaration">
+    {{ input type="checkbox" name="" id="id_partners_opt_in" }}
+    <span>Sky Tickets' elected business partners, including the Event Organiser, may contact you about products, services or events they offer unless you click to opt out.</span>
+  </label>
+</div>
+
+<form onsubmit={{onSubmit}}>
+<button type="submit">Register</button>
+</form>
+
+<p>Form data</p>
+<dl>
+  <dt>title</dt>
+  <dd>{{form.title}}</dd>
+</dl>
+<dl>
+  <dt>first name</dt>
+  <dd>{{form.firstName}}</dd>
+</dl>
+<dl>
+  <dt>last name</dt>
+  <dd>{{form.lastName}}</dd>
+</dl>
+<dl>
+  <dt>tel number</dt>
+  <dd>{{form.telNumber}}</dd>
+</dl>
+<dl>
+  <dt>email</dt>
+  <dd>{{form.email}}</dd>
+</dl>
+<dl>
+  <dt>email confirm</dt>
+  <dd>{{form.emailConfirm}}</dd>
+</dl>
+<dl>
+  <dt>country</dt>
+  <dd>{{form.country}}</dd>
+</dl>
+<dl>
+  <dt>address1</dt>
+  <dd>{{form.address1}}</dd>
+</dl>
+<dl>
+  <dt>same billing address?</dt>
+  <dd>{{form.sameBillingAddress}}</dd>
+</dl>
+<dl>
+  <dt>billing address 1</dt>
+  <dd>{{form.billingAddress1}}</dd>
+</dl>
+<dl>
+  <dt>dob</dt>
+  <dd>{{form.dobDay}} / {{form.dobMonth}} / {{form.dobYear}}</dd>
+</dl>
