@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  country: null,
+  country: 'gogo',
   countries: [
     {id: 1, name: 'UK'},
     {id: 2, name: 'UAE'},

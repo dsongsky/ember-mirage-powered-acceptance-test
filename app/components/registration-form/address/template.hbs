@@ -1,29 +1,69 @@
-<label for={{concat idPrefix "country"}} class="label-wrapper">
-  <span class="label-text">Country</span>
-  {{una-countries-dropdown actionName="countrySelectChange" ddID=(concat idPrefix "country") name="delivery_country" required="true" class="input-value" country=country}}
+<label for={{concat namePrefix "country"}} class="field">
+  <span class="field__label">Country</span>
+  {{una-countries-dropdown
+  actionName="countrySelectChange"
+  ddID=(concat namePrefix "country")
+  name=(concat namePrefix "country")
+  required="true" class="input-value"
+  country=country
+  }}
 </label>
+{{validation-error error=errors.country}}
 
-<label for={{concat idPrefix "line_1"}} class="label-wrapper">
-  <span class="label-text">Address line 1</span>
-  {{ input type="text" name="delivery_line_1" id=(concat idPrefix "line_1") required="required" class="input-value" placeholder="Address line 1" value=address1 }}
+<label for={{concat namePrefix "address_1"}} class="field">
+  <span class="field__label">Address line 1</span>
+  {{ input type="text"
+  name=(concat namePrefix "address_1")
+  id=(concat namePrefix "address_1")
+  required="required"
+  placeholder="Address line 1"
+  value=address1
+  }}
 </label>
+{{validation-error error=errors.address1}}
 
-<label for={{concat idPrefix "line_2"}} class="label-wrapper">
-  <span class="label-text">Address line 2</span>
-  {{ input type="text" name="delivery_line_2" id=(concat idPrefix "line_2") class="input-value" placeholder="Address line 2 (optional)" value=address2 }}
+<label for={{concat namePrefix "address_2"}} class="field">
+  <span class="field__label">Address line 2</span>
+  {{ input type="text"
+  name=(concat namePrefix "address_2")
+  id=(concat namePrefix "address_2")
+  placeholder="Address line 2 (optional)"
+  value=address2
+  }}
 </label>
+{{validation-error error=errors.address2}}
 
-<label for={{concat idPrefix "town_city"}} class="label-wrapper">
-  <span class="label-text">Town / City</span>
-  {{ input type="text" name="delivery_town_city" id=(concat idPrefix "town_city") required="required" class="input-value" placeholder="Town / City" value=townCity }}
+<label for={{concat namePrefix "town_city"}} class="field">
+  <span class="field__label">Town / City</span>
+  {{ input type="text"
+  name=(concat namePrefix "town_city")
+  id=(concat namePrefix "town_city")
+  required="required"
+  placeholder="Town / City"
+  value=townCity
+  }}
 </label>
+{{validation-error error=errors.townCity}}
 
-<label for={{concat idPrefix "county"}} class="label-wrapper">
-  <span class="label-text">County (optional)</span>
-  {{ input type="text" name="delivery_county" id=(concat idPrefix "county") class="input-value" placeholder="County (optional)" value=county }}
+<label for={{concat namePrefix "county"}} class="field">
+  <span class="field__label">County (optional)</span>
+  {{ input type="text"
+  name=(concat namePrefix "county")
+  id=(concat namePrefix "county")
+  placeholder="County (optional)"
+  value=county
+  }}
 </label>
+{{validation-error error=errors.county}}
 
-<label for={{concat idPrefix "postcode"}} class="label-wrapper">
-  <span class="label-text">Postcode</span>
-  {{ input type="text" name="delivery_postcode" id=(concat idPrefix "postcode") required="required" class="input-value" placeholder="Postcode" value=postcode }}
+<label for={{concat namePrefix "postcode"}} class="field">
+  <span class="field__label">Postcode</span>
+  {{ input type="text"
+  name=(concat namePrefix "postcode")
+  id=(concat namePrefix "postcode")
+  required="required"
+  placeholder="Postcode"
+  value=postcode
+  }}
 </label>
+{{validation-error error=errors.postcode}}

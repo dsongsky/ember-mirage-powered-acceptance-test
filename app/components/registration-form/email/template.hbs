@@ -1,11 +1,29 @@
-<label for="id_email" class="label-wrapper">
-  <span class="label-text">Email address</span>
-  {{input type="email" name="email" autocomplete="username" id="id_email" required="required" value=email class="input-value" placeholder="Email address"}}
+<label for="email" class="field">
+  <span class="field__label">Email address</span>
+  {{input
+  type="email"
+  name="email"
+  autocomplete="username"
+  id="email"
+  required="required"
+  value=email
+  class="input-value"
+  placeholder="Email address"
+  }}
 </label>
 {{validation-error error=errors.email}}
 
-<label for="id_confirm_email" class="label-wrapper">
-  <span class="label-text">Confirm email address</span>
-  {{input type="email" name="confirm_email" id="id_confirm_email" value=emailConfirm class="input-value" placeholder="Confirm email address" data-equalto="id_email" required="required"}}
+<label for="confirm_email" class="field">
+  <span class="field__label">Confirm email address</span>
+  {{input
+  type="email"
+  name="confirm_email"
+  id="confirm_email"
+  value=emailConfirm
+  class="input-value"
+  placeholder="Confirm email address"
+  data-equalto="email"
+  required="required"
+  }}
 </label>
 {{validation-error error=errors.emailConfirm}}

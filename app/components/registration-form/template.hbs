@@ -5,32 +5,36 @@ titles=form.titles
 firstName=form.firstName
 lastName=form.lastName
 telNumber=form.telNumber
+errors=form.errors
 selectTitle=(action setField "title")
 }}
 
 {{registration-form/email
 email=form.email
 emailConfirm=form.emailConfirm
+errors=form.errors
 }}
 
 {{registration-form/address
-idPrefix="address_"
+namePrefix="delivery_"
 country=form.country
 address1=form.address1
 address2=form.address2
 townCity=form.townCity
 county=form.county
 postcode=form.postcode
+errors=form.errors
 }}
 
 {{registration-form/address-billing
-idPrefix="billing-address_"
+namePrefix="billing_"
 country=form.billingCountry
 address1=form.billingAddress1
 address2=form.billingAddress2
 townCity=form.billingTownCity
 county=form.billingCounty
 postcode=form.billingPostcode
+errors=billingErrors
 sameBillingAddress=form.sameBillingAddress
 selectSameBillingAddress=(action setField "sameBillingAddress")
 }}
@@ -39,33 +43,34 @@ selectSameBillingAddress=(action setField "sameBillingAddress")
 day=form.dobDay
 month=form.dobMonth
 year=form.dobYear
+errors=form.errors
 selectDay=(action setField "dobDay")
 selectMonth=(action setField "dobMonth")
 selectYear=(action setField "dobYear")
 }}
 
 <div class="single-checkbox">
-  <label for="id_declaration" class="declaration">
-    {{ input type="checkbox" name="declaration" id="id_declaration" required="required" }}
+  <label for="declaration" class="declaration">
+    {{ input type="checkbox" name="declaration" id="declaration" required="required" }}
     <span>I have read and agree to the {{#link-to 'reg-form'}}terms and conditions{{/link-to}}
       and {{#link-to 'reg-form'}}privacy &amp; cookies notice{{/link-to}}</span>
   </label>
 </div>
 <div class="single-checkbox">
-  <label for="id_marketing_opt_in" class="declaration">
-    {{ input type="checkbox" id="id_marketing_opt_in" }}
+  <label for="marketing_opt_in" class="declaration">
+    {{ input type="checkbox" id="marketing_opt_in" }}
     <span>Sky Tickets may contact you about products and services you may like unless you click to opt out. You can change your marketing preferences in the My Account section.</span>
   </label>
 </div>
 <div class="single-checkbox">
-  <label for="id_partners_opt_in" class="declaration">
-    {{ input type="checkbox" name="" id="id_partners_opt_in" }}
+  <label for="partners_opt_in" class="declaration">
+    {{ input type="checkbox" name="" id="partners_opt_in" }}
     <span>Sky Tickets' elected business partners, including the Event Organiser, may contact you about products, services or events they offer unless you click to opt out.</span>
   </label>
 </div>
 
 <form onsubmit={{onSubmit}}>
-<button type="submit">Register</button>
+<button type="submit" class="btn">Register</button>
 </form>
 
 <p>Form data</p>

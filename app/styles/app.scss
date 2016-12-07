@@ -1,3 +1,193 @@
+$sans-serif: "Arial", "Arial Black", "Tahoma", "Trebuchet MS", "Verdana", Sans-serif;
+$serif: "Courier", "Courier New", "Georgia", "Times", "Times New Roman", Serif;
+
 body {
-  // color: red;
+  font-family: $sans-serif;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+/**
+* btn. This should be applied to all elements that should look like a button
+* Its parent should be positioned accordingly.
+* $padding: false ensures we use our own padding settings
+*/
+.btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #de1267;
+  border-color: #ea136d;
+  color: #FFFFFF;
+  border-radius: 0.1875rem;
+  transition: background-color 300ms ease-out;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 15px 25px 15px 25px;
+  letter-spacing: 3px;
+  line-height: 0.9375rem;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #ea136d;
+}
+
+.btn:hover,
+.btn:focus {
+  color: #FFFFFF;
+}
+
+@media only screen and (max-width: 48.125em) {
+  .btn {
+    width: 100%;
+  }
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn--small {
+  padding: 11.25px 18.75px 11.25px 18.75px;
+  font-size: 0.5625rem;
+  letter-spacing: 2.25px;
+}
+
+.btn--large {
+  padding: 22.5px 37.5px 22.5px 37.5px;
+  font-size: 1.125rem;
+}
+
+.btn--xlarge {
+  padding: 30px 50px 30px 50px;
+  font-size: 1.5rem;
+  line-height: 1.40625rem;
+}
+
+@media only screen and (min-width: 48.188em) {
+  .btn--xxlarge {
+    padding: 37.5px 62.5px 37.5px 62.5px;
+    font-size: 1.875rem;
+    line-height: 1.64062rem;
+  }
+}
+
+.btn--no-margin {
+  margin: 0;
+}
+
+.btn--bigger-text {
+  font-size: 1rem;
+}
+
+.btn--with-margin {
+  margin: 0.625rem 0;
+}
+
+.btn--reversed {
+  color: #0BA79F;
+  background: #FFFFFF;
+}
+
+.btn--disabled {
+  opacity: 0.15;
+  cursor: not-allowed;
+}
+
+/* We use this to get basic styling on all basic form elements */
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  background-color: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.75);
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  height: 2.3125rem;
+  margin: 0;
+  padding: 0.5rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: border-color 0.15s linear, background 0.15s linear;
+  -moz-transition: border-color 0.15s linear, background 0.15s linear;
+  -ms-transition: border-color 0.15s linear, background 0.15s linear;
+  -o-transition: border-color 0.15s linear, background 0.15s linear;
+  transition: border-color 0.15s linear, background 0.15s linear;
+}
+
+/* Add height value for select elements to match text input height */
+select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: #FAFAFA;
+  border-radius: 0;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+);
+  background-position: 100% center;
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  color: rgba(0, 0, 0, 0.75);
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: normal;
+  padding: 0.5rem;
+  border-radius: 0;
+  height: 2.3125rem;
+}
+
+input[type="file"], input[type="checkbox"], input[type="radio"], select {
+  margin: 0 0 1rem 0;
+}
+
+input, select, textarea {
+  border-radius: 3px;
+}
+
+label {
+  color: #4d4d4d;
+  cursor: pointer;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.field {
+  margin: 1rem 0 0 0;
+}
+
+.field__label {
+  font-weight: bold;
+}
+
+.field__error {
+  color: #ea136d;
+  font-size: small;
 }

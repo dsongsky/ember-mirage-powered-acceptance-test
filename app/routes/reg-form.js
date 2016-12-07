@@ -2,6 +2,19 @@ import Ember from 'ember';
 import { validator, buildValidations } from 'ember-cp-validations';
 
 const availableTitles = ['Mr', 'Mrs', 'Miss', 'Ms', 'Master'];
+
+function billingFieldValidator() {
+  return validator('presence',  {
+    presence: true,
+    disabled: Ember.computed('model.sameBillingAddress', function() {
+      return !!parseInt(this.get('model.sameBillingAddress'), 10);
+    })
+  });
+}
+
+
+// note: don't use debounce as we are doing manual validation upon submitting
+// see http://offirgolan.github.io/ember-cp-validations/docs/modules/Common%20Options.html#debounce
 const validations = buildValidations({
   title: [
     validator('inclusion', {
@@ -12,13 +25,30 @@ const validations = buildValidations({
   firstName: validator('presence', true),
   lastName: validator('presence', true),
   telNumber: validator('presence', true),
-  email: validator('presence', true),
-  emailConfirm: validator('presence', true),
+  email: {
+    validators: [
+      validator('presence', true),
+      validator('format', {
+        type: 'email'
+      })
+    ]
+  },
+  emailConfirm: validator('confirmation', {
+    on: 'email',
+    message: 'Email addresses do not match'
+  }),
   country: validator('presence', true),
   address1: validator('presence', true),
   townCity: validator('presence', true),
   postcode: validator('presence', true),
   sameBillingAddress: validator('presence', true),
+  billingCountry: billingFieldValidator(),
+  billingAddress1: billingFieldValidator(),
+  billingTownCity: billingFieldValidator(),
+  billingPostcode: billingFieldValidator(),
+  dobDay: validator('presence', true),
+  dobMonth: validator('presence', true),
+  dobYear: validator('presence', true),
 });
 
 const RegForm = Ember.Object.extend(validations, {
@@ -48,7 +78,7 @@ const initialData = {
   dobDay: 1,
   dobMonth: 1,
   dobYear: 1970,
-  errors: {}
+  errors: null,
 };
 
 export default Ember.Route.extend({
@@ -69,7 +99,19 @@ export default Ember.Route.extend({
     let errors = form.get('validations.errors');
     let messages = form.get('validations.messages');
 
-    console.log('what is this', isValid, errors, messages);
+    let formErrors = errors.reduce((accumulator, current) => {
+
+      accumulator[current.attribute] = {
+        message: current.message,
+        type: current.type
+      };
+
+      return accumulator;
+    }, {});
+
+    form.set('errors', formErrors);
+    console.log('what is this', isValid, messages, formErrors);
+
   },
 
   actions: {

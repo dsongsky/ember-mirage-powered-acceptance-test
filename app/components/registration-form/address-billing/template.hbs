@@ -2,23 +2,26 @@
   Is your billing address the same as above?
   <label>
     <span>Yes</span>
-    <input type="radio" name="sameBillingAddress" value="1"
+    <input type="radio" name="same_billing" value="1"
            onchange={{action "selectSameBillingAddress" value="target.value"}}>
   </label>
   <label>
     <span>No</span>
-    <input type="radio" name="sameBillingAddress" value="0"
+    <input type="radio" name="same_billing" value="0"
            onchange={{action "selectSameBillingAddress" value="target.value"}}>
   </label>
   {{#if (eq "0" sameBillingAddress)}}
     {{registration-form/address
-    idPrefix=idPrefix
+    namePrefix=namePrefix
     country=country
     address1=address1
     address2=address2
     townCity=townCity
     county=county
     postcode=postcode
+    errors=errors
     }}
   {{/if}}
+
+  {{validation-error error=errors.sameBillingAddress}}
 </fieldset>
